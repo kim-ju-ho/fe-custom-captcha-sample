@@ -1,0 +1,121 @@
+<div style="background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1rem; position: relative;">
+  <div style="background: #ffffff; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); overflow: hidden; color: #333;">
+
+    <div style="background: #5a5f66; color: #fff; padding: 13px 20px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <span style="font-size: 15px; font-weight: 500;">속도측정 상세이력</span>
+      <i class="ti ti-x" style="position: absolute; right: 16px; font-size: 18px; opacity: 0.85;" aria-hidden="true"></i>
+    </div>
+
+    <div style="padding: 22px 26px 26px;">
+      <h3 style="margin: 0 0 8px; font-size: 16px; color: #222; font-weight: 500;">SLA 테스트 이력 상세보기</h3>
+      <div style="border-top: 2px solid #888; margin-bottom: 14px;"></div>
+
+      <table style="width: 100%; font-size: 13px; border-collapse: collapse; color: #444;">
+        <tr><td style="width: 130px; padding: 7px 0; color: #666;">측정일자</td><td style="padding: 7px 0;">2026-06-24 오후 03:55:15</td></tr>
+        <tr><td style="padding: 7px 0; color: #666;">상품명</td><td style="padding: 7px 0;">인터넷 Biz NET</td></tr>
+        <tr><td style="padding: 7px 0; color: #666;">SLA기준속도</td><td style="padding: 7px 0;">500 Mbps</td></tr>
+        <tr><td style="padding: 7px 0; color: #666;">미달횟수</td><td style="padding: 7px 0;">5 / 5 회</td></tr>
+        <tr><td style="padding: 7px 0; color: #666; vertical-align: top;">결 과</td><td style="padding: 7px 0; line-height: 1.6;">SLA 미달횟수가 100.00%로서 기준(60%) 이상입니다. 품질점검 신청이 가능합니다.</td></tr>
+      </table>
+
+      <p style="font-size: 11px; color: #999; margin: 14px 0 20px;">* 표기된 이용중인 상품의 SLA(품질보증)기준속도로 측정결과 미달 여부를 판단합니다.</p>
+
+      <div style="text-align: center; margin-bottom: 8px;">
+        <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #2a6cb0; margin-right: 24px; cursor: pointer;">
+          <input type="radio" name="ph" checked style="accent-color: #2a6cb0;" /> 휴대폰
+        </label>
+        <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #555; cursor: pointer;">
+          <input type="radio" name="ph" style="accent-color: #2a6cb0;" /> 집전화/인터넷전화
+        </label>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 18px;">
+        <span style="font-size: 13px; color: #666; margin-right: 6px;">연락처</span>
+        <select style="width: 64px; height: 30px; font-size: 13px; border: 1px solid #ccc; border-radius: 3px; padding: 0 4px;">
+          <option>010</option><option>011</option><option>02</option>
+        </select>
+        <span style="color: #aaa;">-</span>
+        <input type="text" maxlength="4" inputmode="numeric" style="width: 70px; height: 30px; font-size: 13px; border: 1px solid #ccc; border-radius: 3px; text-align: center;" />
+        <span style="color: #aaa;">-</span>
+        <input type="text" maxlength="4" inputmode="numeric" style="width: 70px; height: 30px; font-size: 13px; border: 1px solid #ccc; border-radius: 3px; text-align: center;" />
+      </div>
+
+      <div style="border-top: 1px solid #e0e0e0; padding-top: 16px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px;">
+          <label style="display: inline-flex; align-items: center; gap: 7px; cursor: pointer; font-size: 13px; color: #333;">
+            <input type="checkbox" id="req" style="width: 16px; height: 16px; accent-color: #c0392b;" />
+            <span><span style="color: #c0392b; font-weight: 500;">[필수]</span> 개인정보 수집·이용 동의</span>
+          </label>
+          <button id="open-terms" type="button" style="display: inline-flex; align-items: center; gap: 5px; background: #fff; color: #2a6cb0; border: 1px solid #2a6cb0; border-radius: 4px; padding: 5px 12px; font-size: 12px; font-weight: 500; cursor: pointer; flex-shrink: 0;">
+            <i class="ti ti-file-text" style="font-size: 14px;" aria-hidden="true"></i>
+            약관 전문 보기
+          </button>
+        </div>
+        <label style="display: inline-flex; align-items: center; gap: 7px; cursor: pointer; font-size: 13px; color: #666;">
+          <input type="checkbox" style="width: 16px; height: 16px; accent-color: #c0392b;" />
+          <span><span style="font-weight: 500;">[선택]</span> 점검 결과 문자 수신에 동의합니다.</span>
+        </label>
+      </div>
+
+      <div style="text-align: center;">
+        <button id="confirm" style="background: #d94a4a; color: #fff; border: none; padding: 11px 46px; border-radius: 4px; font-size: 15px; font-weight: 500; cursor: not-allowed; opacity: 0.55;" disabled>확인</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="terms-overlay" style="display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.45); border-radius: var(--border-radius-lg); align-items: center; justify-content: center; padding: 24px;">
+    <div style="background: #fff; width: 100%; max-width: 460px; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; max-height: 86%;">
+      <div style="background: #c0392b; color: #fff; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;">
+        <span style="font-size: 14px; font-weight: 500;">개인정보 수집·이용 약관</span>
+        <i id="close-terms" class="ti ti-x" style="font-size: 18px; cursor: pointer;" aria-hidden="true"></i>
+      </div>
+      <div style="padding: 18px 20px; overflow-y: auto; font-size: 12.5px; color: #444; line-height: 1.75;">
+        <p style="margin: 0 0 4px; font-weight: 500; color: #222;">제1조 수집하는 개인정보 항목</p>
+        <p style="margin: 0 0 14px;">회사는 품질점검 신청 처리를 위해 다음의 개인정보를 수집합니다. 필수항목: 연락처(휴대폰 또는 유선전화 번호). 위 항목은 신청자 본인 확인 및 처리 결과 안내를 위한 최소한의 정보입니다.</p>
+        <p style="margin: 0 0 4px; font-weight: 500; color: #222;">제2조 개인정보의 수집·이용 목적</p>
+        <p style="margin: 0 0 14px;">수집된 개인정보는 품질점검 신청 접수, 점검 일정 조율, 처리 진행 상황 및 결과 안내, 관련 민원 응대의 목적으로만 이용되며, 명시된 목적 이외의 용도로는 이용되지 않습니다.</p>
+        <p style="margin: 0 0 4px; font-weight: 500; color: #222;">제3조 개인정보의 보유 및 이용 기간</p>
+        <p style="margin: 0 0 14px;">수집된 개인정보는 품질점검 처리가 완료된 날로부터 3개월간 보유한 후 지체 없이 파기합니다. 다만 관계 법령에 따라 보존할 필요가 있는 경우 해당 법령에서 정한 기간 동안 보관합니다.</p>
+        <p style="margin: 0 0 4px; font-weight: 500; color: #222;">제4조 동의를 거부할 권리 및 불이익</p>
+        <p style="margin: 0 0 14px;">신청자는 개인정보 수집·이용에 대한 동의를 거부할 권리가 있습니다. 다만 필수항목에 대한 동의를 거부하실 경우 품질점검 신청 접수가 제한될 수 있습니다.</p>
+        <p style="margin: 0 0 4px; font-weight: 500; color: #222;">제5조 개인정보의 제3자 제공</p>
+        <p style="margin: 0;">회사는 원칙적으로 신청자의 개인정보를 외부에 제공하지 않으며, 관계 법령에 근거하거나 신청자의 별도 동의가 있는 경우에 한하여 제공합니다.</p>
+      </div>
+      <div style="padding: 12px 18px; border-top: 1px solid #eee; display: flex; gap: 8px; flex-shrink: 0;">
+        <button id="agree-terms" type="button" style="flex: 1; background: #c0392b; color: #fff; border: none; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 500; cursor: pointer;">동의하고 닫기</button>
+        <button id="just-close" type="button" style="flex: 0 0 90px; background: #fff; color: #666; border: 1px solid #ccc; padding: 10px; border-radius: 4px; font-size: 13px; cursor: pointer;">닫기</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const req = document.getElementById('req');
+  const btn = document.getElementById('confirm');
+  const overlay = document.getElementById('terms-overlay');
+  const openBtn = document.getElementById('open-terms');
+  const closeX = document.getElementById('close-terms');
+  const justClose = document.getElementById('just-close');
+  const agree = document.getElementById('agree-terms');
+
+  function syncBtn() {
+    if (req.checked) { btn.disabled = false; btn.style.opacity = '1'; btn.style.cursor = 'pointer'; }
+    else { btn.disabled = true; btn.style.opacity = '0.55'; btn.style.cursor = 'not-allowed'; }
+  }
+  function show() { overlay.style.display = 'flex'; }
+  function hide() { overlay.style.display = 'none'; }
+
+  req.addEventListener('change', syncBtn);
+  openBtn.addEventListener('click', show);
+  closeX.addEventListener('click', hide);
+  justClose.addEventListener('click', hide);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) hide(); });
+  agree.addEventListener('click', function () { req.checked = true; syncBtn(); hide(); });
+
+  btn.addEventListener('click', function () {
+    if (!req.checked) return;
+    btn.textContent = '신청 완료';
+    btn.style.background = '#2e7d32';
+  });
+</script>
